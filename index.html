@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WaveLab Saturator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>🎚️ WaveLab Saturator</h1>
+<p class="subtitle">Audio Studio</p>
+
+<section class="panel">
+<h2>Audio</h2>
+<input id="fileInput" type="file" accept="audio/*">
+<p id="fileName">Ningún archivo seleccionado</p>
+<p id="status">Carga un audio.</p>
+<button id="playBtn">▶ Reproducir</button>
+<button id="stopBtn">■ Detener</button>
+</section>
+
+<section class="panel">
+<h2>Onda de sonido</h2>
+<canvas id="waveCanvas"></canvas>
+<h2>Onda en vivo</h2>
+<canvas id="liveCanvas"></canvas>
+<h2>Espectro</h2>
+<canvas id="spectrumCanvas"></canvas>
+</section>
+
+<section class="panel">
+<h2>Saturación</h2>
+<label>Drive <span id="driveValue"></span></label>
+<input id="drive" type="range" min="1" max="30" value="3" step=".1">
+<label>Dry / Wet <span id="mixValue"></span></label>
+<input id="mix" type="range" min="0" max="100" value="50">
+<label>Volumen <span id="volumeValue"></span></label>
+<input id="volume" type="range" min="0" max="150" value="100">
+</section>
+
+<section class="panel">
+<h2>Ecualizador</h2>
+<label>Graves <span id="bassValue"></span></label>
+<input id="bass" type="range" min="-15" max="15" value="0">
+<label>Medios <span id="midValue"></span></label>
+<input id="mid" type="range" min="-15" max="15" value="0">
+<label>Agudos <span id="trebleValue"></span></label>
+<input id="treble" type="range" min="-15" max="15" value="0">
+</section>
+
+<section class="panel">
+<h2>Generador de tonos</h2>
+<select id="toneType">
+<option value="sine">Sine</option>
+<option value="square">Square</option>
+<option value="triangle">Triangle</option>
+<option value="sawtooth">Sawtooth</option>
+</select>
+<input id="toneFrequency" type="number" value="440">
+<button id="toneBtn">Generar</button>
+<button id="toneStopBtn">Detener tono</button>
+</section>
+
+<section class="panel">
+<h2>Exportar MP3</h2>
+<button id="exportBtn">Exportar audio</button>
+<p id="exportStatus"></p>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
